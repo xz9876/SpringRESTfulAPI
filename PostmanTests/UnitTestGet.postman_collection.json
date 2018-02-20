@@ -1,0 +1,349 @@
+{
+	"info": {
+		"name": "UnitTestGet",
+		"_postman_id": "c41bd478-77b3-08f1-f719-442b67d18938",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Unit Test Get Empty List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad87d475-fb71-4626-98bf-d87e5120a25c",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Empty to do list, Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"1\",\n    \"description\": \"To do 1\",\n    \"date\": \"19-Feb-2018 08:03:00\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unit Test Post data1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76452752-1f1f-4684-a531-65f8b4e47087",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Post Data successful, Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"1\",\n    \"description\": \"To do 1\",\n    \"dueDate\": \"19-Feb-2018 08:03:01\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unit Test Post data2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e085ffec-f23e-4875-8f54-342875df559b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Post Data successful, Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"2\",\n    \"description\": \"To do 2\",\n    \"dueDate\": \"19-Feb-2018 08:03:02\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unit Test Get Single List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4705cb67-b7c8-45b2-9818-57f003488e72",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Get Single List 2\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.title).to.eql(\"2\");",
+							"    pm.expect(jsonData.description).to.eql(\"To do 2\");",
+							"    pm.expect(jsonData.dueDate).to.eql(\"19-Feb-2018 08:03:02\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"3\",\n        \"description\": \"To do 3\",\n        \"date\": \"19-Feb-2018 08:03:03\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unit Test Post data3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f0fbe8c-80c7-4631-8c48-e4e6f14e09f8",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Post Data successful, Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"3\",\n    \"description\": \"To do 3\",\n    \"dueDate\": \"19-Feb-2018 08:03:03\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unit Test Get  List doesn't exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56fb7097-7cdf-419d-8d42-059d70a2e8ec",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Get unexist list, Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"3\",\n        \"description\": \"To do 3\",\n        \"date\": \"19-Feb-2018 08:03:03\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						"4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Unit Test Get Lists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e8d96441-3a8f-406b-8ed4-919589c72820",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].title).to.eql(\"1\");",
+							"    pm.expect(jsonData[0].description).to.eql(\"To do 1\");",
+							"    pm.expect(jsonData[0].dueDate).to.eql(\"19-Feb-2018 08:03:01\");",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[1].title).to.eql(\"2\");",
+							"    pm.expect(jsonData[1].description).to.eql(\"To do 2\");",
+							"    pm.expect(jsonData[1].dueDate).to.eql(\"19-Feb-2018 08:03:02\");",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[2].title).to.eql(\"3\");",
+							"    pm.expect(jsonData[2].description).to.eql(\"To do 3\");",
+							"    pm.expect(jsonData[2].dueDate).to.eql(\"19-Feb-2018 08:03:03\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"3\",\n        \"description\": \"To do 3\",\n        \"date\": \"19-Feb-2018 08:03:03\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESTfulWebAPI/todoList/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESTfulWebAPI",
+						"todoList",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
