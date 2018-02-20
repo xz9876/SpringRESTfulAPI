@@ -15,6 +15,8 @@ Once the web service is started, it can be reached at
 ## Test
 Under PostmanTests folder, there are three unit tests file for GET, POST and PATCH, one integration test file, these can be used in Postman. All cases passed. Because this service doesn't implement DELETE, it requires to restart the service when each test is finished.
 
+There is no fake data, users need to post data first.
+
 ## Incompelete implementation
 The requirements for the POST is 
 ##### Done when an unsuccessful POST due to any reason returns an HTTP 400 status 
